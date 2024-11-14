@@ -1,0 +1,120 @@
+[build-system]
+requires = ["setuptools >= 61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "MFTIQ"
+version = "1.0.0"
+description = "Official implementation of MFTIQ: Multi-Flow Tracker with Independent Matching Quality Estimation"
+readme = "readme.md"
+requires-python = ">= 3.8"
+license = {file = "LICENSE"}
+authors = [
+  {name = "Jonas Serych", email = "jonas@sery.ch"},
+  {name = "Michal Neoral", email = "neoramic@fel.cvut.cz"}
+  ]
+
+dependencies = [
+    "torch == 2.0.1",  # developed with 2.0.1
+    "torchvision",  # developed with 0.15.2
+    "numpy < 2.0.0",  # developed with 1.26.4
+    "opencv-python", # developed with 4.8.1.78
+    "einops", # developed with 0.7.0
+    "ipdb", # developed with 0.13.13
+    "tqdm", # developed with 4.66.1
+    "Pillow", # developed with 10.1.0
+    "scipy", # developed with 1.11.4
+    "rich", # developed with 13.7.1
+    "kornia",
+    "pycolormap-2d", # developed with 1.0.10
+
+    "matplotlib", # developed with 3.8.2
+    "lz4",
+    "xformers",
+    "cmocean", # developed with 3.0.3
+    "pypng"
+    ]
+
+[project.urls]
+Homepage = "https://cmp.felk.cvut.cz/~serycjon/MFTIQ/"
+Repository = "https://github.com/serycjon/MFTIQ"
+
+
+[project.optional-dependencies]
+full = ["spatial-correlation-sampler == 0.4.0"]  # can be installed only after torch is installed
+
+extra-fformer = ["timm == 0.4.12"]
+extra-neuflow = ["spatial-correlation-sampler == 0.4.0"]
+extra-ptl = ["ptlflow"] # developed with 0.3.2
+extra-eval = [
+    "pandas", # developed with 2.1.4
+    "tabulate", # developed with 0.9.0
+    "mediapy"
+    ]
+extra-other = [
+    "line-profiler",
+    "h5py",
+    "loguru",
+    "tensorflow",
+    "yacs",
+    "imageio",
+    ]
+
+[tool.ruff]
+# Enable the pycodestyle (`E`) and Pyflakes (`F`) rules by default.
+# Unlike Flake8, Ruff doesn't enable pycodestyle warnings (`W`) or
+# McCabe complexity (`C901`) by default.
+select = ["E", "F"]
+ignore = []
+
+# Allow autofix for all enabled rules (when `--fix`) is provided.
+fixable = ["ALL"]
+unfixable = []
+
+# Exclude a variety of commonly ignored directories.
+exclude = [
+    ".direnv",
+    ".git",
+    ".ruff_cache",
+    "__pypackages__",
+    "venv",
+]
+per-file-ignores = {}
+
+# Same as Black.
+line-length = 160
+
+# Allow unused variables when underscore-prefixed.
+dummy-variable-rgx = "^(_+|(_+[a-zA-Z0-9_]*[a-zA-Z0-9]+?))$"
+
+target-version = "py311"
+
+[tool.pylint]
+disable = ["invalid-name", "missing-module-docstring", "too-many-instance-attributes", "missing-class-docstring",
+           "too-many-statements", "too-many-locals", "too-many-branches", "logging-fstring-interpolation",
+	   "superfluous-parens"]
+
+max-line-length = 160
+
+extension-pkg-allow-list = ["cv2"]
+
+[tool.pylint.miscellaneous]
+notes = ["FIXME", "HACK"]
+
+[tool.pylint.design]
+max-args = 8
+
+[tool.mypy]
+ignore_missing_imports = true
+show_error_codes = true
+check_untyped_defs = true
+
+# [tool.pylsp-mypy]
+# enabled = true
+# live_mode = false
+# dmypy = false
+
+[[tool.mypy.overrides]]
+# Doesn't seem to be working. Maybe the module specification is not correct? (config is not a module?)
+module = "configs.*"
+disable_error_code = ["attr-defined"]

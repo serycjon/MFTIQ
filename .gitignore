@@ -1,0 +1,22 @@
+# emacs stuff
+[#]*[#]
+.\#*
+*.idea
+*~
+*__pycache__*
+*.pyc
+*.pytest_cache
+*.ipynb_checkpoints/
+/flowou_evals/
+cache/
+logs
+demo_out
+michaluv_export
+export
+train_files_lists/
+runs/
+checkpoints
+*.lprof
+*.profile
+profile_output.*
+/.gdb_history

@@ -1,0 +1,13 @@
+--name raft-sintel-debug
+--stage viper
+--validation kitti
+--restore_ckpt models/raft-sintel.pth
+--gpus 5 6
+--num_steps 50000
+--batch_size 6
+--lr 0.0001
+--image_size 368 768
+--wdecay 0.00001
+--gamma=0.85
+--dashcam_augmenentation
+--blend_source /datagrid/public_datasets/COCO/train2017

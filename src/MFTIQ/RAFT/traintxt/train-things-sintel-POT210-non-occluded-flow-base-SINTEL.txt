@@ -1,0 +1,12 @@
+--name raft-things-sintel-POT210-non-occluded-flow-base-sintel
+--stage sintel_things_pot210_train_subsplit
+--validation sintel_val_subsplit
+--restore_ckpt RAFT/models/raft-sintel.pth
+--optical_flow_loss L1_non_occluded
+--num_steps 100000
+--batch_size 6
+--lr 0.000125
+--image_size 368 768
+--wdecay 0.00001
+--gamma=0.85
+--gpus 3

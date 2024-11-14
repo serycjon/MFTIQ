@@ -1,0 +1,13 @@
+--name raft-rob-100k
+--stage all
+--validation kitti sintel chairs
+--restore_ckpt models/raft-sintel.pth
+--gpus 0 1
+--num_steps 100000
+--batch_size 6
+--lr 0.0001
+--image_size 288 928
+--wdecay 0.0
+--gamma=0.85
+--dashcam_augmenentation
+--blend_source /datagrid/public_datasets/COCO/train2017
