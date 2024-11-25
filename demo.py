@@ -28,7 +28,7 @@ def parse_arguments():
     parser.add_argument('--video', help='path to a source video (or a directory with images)', type=Path,
                         default=Path('demo_in/ugsJtsO9w1A-00.00.24.457-00.00.29.462_HD.mp4'))
     parser.add_argument('--edit', help='path to a RGBA png with a first-frame edit', type=Path,
-                        default=Path('demo_in/edit.png'))
+                        default=Path('demo_in/ugsJ-edit.png'))
     parser.add_argument('--config', help='MFT config file', type=Path, default=Path('configs/MFTIQ4_ROMA_200k_cfg.py'))
     parser.add_argument('--out', help='output directory', type=Path, default=Path('demo_out/'))
     parser.add_argument('--grid_spacing', help='distance between visualized query points', type=int, default=30)
