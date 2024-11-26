@@ -56,7 +56,9 @@ See available options like this:
 	
 and feel free to run it on your own videos. If you don't want to create your own video edit template, run:
 
-	python demo.py --video your/video/or/directory/with/images --edit checkerboard --gpu 0
+	python demo.py --video demo_in/camel/ --edit checkerboard --gpu 0
+
+You can replace the `demo_in/camel/` with a path to your video file, or a directory with video frames.
 
 
 ## Run eval report
